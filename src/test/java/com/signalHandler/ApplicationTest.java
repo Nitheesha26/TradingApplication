@@ -19,7 +19,6 @@ class ApplicationTest {
         // Test signal 1
         application.handleSignal(1);
 
-        // Verify that the appropriate methods of Algo are called
         Mockito.verify(mockAlgo).setUp();
         Mockito.verify(mockAlgo).setAlgoParam(1, 60);
         Mockito.verify(mockAlgo).performCalc();
@@ -32,7 +31,6 @@ class ApplicationTest {
         // Test signal 2
         application.handleSignal(2);
 
-        // Verify that the appropriate methods of Algo are called
         Mockito.verify(mockAlgo).reverse();
         Mockito.verify(mockAlgo).setAlgoParam(1, 80);
         Mockito.verify(mockAlgo).submitToMarket();
@@ -45,7 +43,6 @@ class ApplicationTest {
         // Test signal 3
         application.handleSignal(3);
 
-        // Verify that the appropriate methods of Algo are called
         Mockito.verify(mockAlgo).setAlgoParam(1, 90);
         Mockito.verify(mockAlgo).setAlgoParam(2, 15);
         Mockito.verify(mockAlgo).performCalc();
@@ -56,7 +53,7 @@ class ApplicationTest {
         Mockito.reset(mockAlgo);
 
         // Test default signal
-        application.handleSignal(999); // Assuming 999 is not a valid signal
+        application.handleSignal(10); 
 
         // Verify that cancelTrades and doAlgo are called for the default case
         Mockito.verify(mockAlgo).cancelTrades();
